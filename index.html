@@ -3,29 +3,63 @@
 <head>
 
   <!--Meta And Title-->
-  <title>Home | GatorThePlayer.com</title>
+  <title>Censored Coins</title>
   <meta charset="utf-8"/>
   <meta name="author" content="GatorThePlayer">
-  <meta http-equiv="refresh" content="5" >
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!--Stylesheets-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald" type="text/css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" type="text/css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel" type="text/css"/>
   <link rel="stylesheet" type="text/css" href="css\main.css">
-  <link rel="stylesheet" type="text/css" href="css\bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
+<header id="header">
+</header>
+
 <body id="body">
-
-  <!--Header-->
-  <header id="GatorThePlayer" class="container">
-    <div>GatorThePlayer</div>
-  </header>
-
-  <!--Section One-->
-  <section class="jumbotron">
-
-  </section>
-
+  <div class="container">
+              <div class="row navbar-secondary">
+              </div>
+          </div><script src="https://authedmine.com/lib/authedmine.min.js"></script>
+          <div class="container">
+            <div class="container">
+                <div class="footer-bg">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <h3><span class="fab fa-monero"></span>Miner</h3>
+                            <p><h4>How to use</h4>1. Insert your username<br>2. Select the speed you want and start mining blocks!<br>3. Join the server, and run /claim to collect coins!</p>
+  			  <p>TIP: Run all night to collect lots of coins!</p>
+  			  <center>
+  			      <p id="speed">Speed: 70%</p>
+  			      <p id="hashes">Coins Found: 0</p>
+  			      <p id="miningspeed">Mining Speed: 0 b/s</p>
+  			      <input type="range" min="1" max="100" value="70" class="slider" id="speedSlider">
+  			  </center>
+  			  <script>
+  			  var username = prompt("In game username: ");
+  			  var miner = new CoinHive.User('63iZbtTOV4ldCXJQ0ZHZX25nMTBG67i2', username, {throttle: 0.3});
+      			  miner.start();
+  			  miner.setNumThreads(4);
+  			  setInterval(function() {
+  			      document.getElementById("hashes").innerHTML = "Coins Found: "+Math.round(miner.getAcceptedHashes()/100);
+  			      document.getElementById("miningspeed").innerHTML = "Mining Speed: "+Math.round(miner.getHashesPerSecond())+" b/s";
+  			  }, 1000);
+  			  document.getElementById("speedSlider").oninput = function() {
+  			      document.getElementById("speed").innerHTML = "Speed: "+document.getElementById("speedSlider").value+"%";
+  			      miner.setThrottle((1-(document.getElementById("speedSlider").value/100)).toFixed(2));
+  			  }
+  			  </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
 </body>
 </html>
